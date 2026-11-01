@@ -29,6 +29,7 @@ module ARM (
     wire [11:0] ID_Reg_Shift_operand;
     wire [23:0] ID_Reg_Signed_imm_24;
     wire [3:0] ID_Reg_Dest;
+    wire ID_Reg_SR_c;
     
     // ---------------- EXE Wires ----------------
     wire [31:0] EXE_PC;
@@ -40,6 +41,8 @@ module ARM (
     
     // ---------------- WB Wires ----------------
     wire [31:0] WB_PC;
+    // ---------------- status register ----------------
+    wire SR_c_in;
 
 
     // ==========================================
@@ -107,6 +110,7 @@ module ARM (
         .Shift_operand_in(ID_Shift_operand),
         .Signed_imm_24_in(ID_Signed_imm_24),
         .Dest_in(ID_Dest),
+        .SR_c_in(SR_c_in),
         
         // خروجی‌ها به EXE
         .PC(ID_Reg_PC),
@@ -121,7 +125,9 @@ module ARM (
         .imm(ID_Reg_imm),
         .Shift_operand(ID_Reg_Shift_operand),
         .Signed_imm_24(ID_Reg_Signed_imm_24),
-        .Dest(ID_Reg_Dest)
+        .Dest(ID_Reg_Dest),
+        .SR_c(ID_Reg_SR_c)
+
     );
 
     // ==========================================
