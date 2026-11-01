@@ -29,10 +29,10 @@ module RegisterFile(
             end
         end 
         else if (writeBackEN) begin
-            
-            if (Dest_WB < 15) begin
+            //commented the address validation
+            // if (Dest_WB < 15) begin
                 reg_file[Dest_WB] <= Result_WB;
-            end
+            // end
         end
     end
 

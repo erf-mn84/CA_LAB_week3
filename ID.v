@@ -108,6 +108,7 @@ module ID_Stage_Reg(
     input [11:0] Shift_operand_in,
     input [23:0] Signed_imm_24_in,
     input [3:0] Dest_in,
+    input SR_c_in,
     
     // خروجی‌ها برای رفتن به EXE_Stage
     output reg [31:0] PC,
@@ -118,7 +119,8 @@ module ID_Stage_Reg(
     output reg imm,
     output reg [11:0] Shift_operand,
     output reg [23:0] Signed_imm_24,
-    output reg [3:0] Dest
+    output reg [3:0] Dest,
+    output reg SR_c
 );
 
     always @(posedge clk or posedge rst) begin
@@ -137,6 +139,7 @@ module ID_Stage_Reg(
             Shift_operand <= 12'b0;
             Signed_imm_24 <= 24'b0;
             Dest <= 4'b0;
+            SR_c <= 1'b0;
         end 
         else begin
             // انتقال داده‌ها در لبه بالارونده کلاک
@@ -153,6 +156,7 @@ module ID_Stage_Reg(
             Shift_operand <= Shift_operand_in;
             Signed_imm_24 <= Signed_imm_24_in;
             Dest <= Dest_in;
+            SR_c <= SR_c_in;
         end
     end
     

@@ -44,7 +44,7 @@ module Control_Unit(
                     default: begin EXE_CMD = 4'b0000; uncond_WB_EN = 1'b0; end
                 endcase
             end
-            
+            //lDR-STR
             2'b01: begin 
                 
                 EXE_CMD = 4'b0010; 
@@ -58,7 +58,7 @@ module Control_Unit(
                 end
             end
             
-            2'b10: begin
+            2'b10: begin//Branch
                 B = 1'b1;
                 
                 EXE_CMD = 4'b0000; 
